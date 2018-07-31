@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="techfile-jpa" transaction-type="JTA">
+		<description>hibernate persistence unit</description>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<jta-data-source>java:jboss/datasources/techfileDS</jta-data-source>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+
+		<properties>
+
+			<!-- sustituído por javax.persistence.schema-generation más abajo -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+			<!-- <property name="hibernate.show_sql" value="false" /> -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<!-- <property name="org.hibernate.flushMode" value="COMMIT"/> -->
+			<property name="org.hibernate.flushMode" value="MANUAL" />
+
+			<!-- Only scan and detect annotated entities -->
+			<property name="hibernate.archive.autodetection" value="class" />
+
+
+			<property name="hibernate.default_batch_fetch_size" value="100" />
+			<property name="hibernate.order_updates" value="true" />
+			<property name="hibernate.order_inserts" value="true" />
+
+			<!-- debe coincidir con el número de iteraciones en que hacemos flush() y clean() -->
+			<property name="hibernate.jdbc.batch_size" value="100" />
+
+			<!-- <property name="hibernate.transaction.flush_before_completion" value="true"/> -->
+
+			<property name="hibernate.connection.charSet" value="UTF-8" />
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+			<property name="hibernate.ejb.cfgfile" value="hibernate.cfg.xml"/>
+			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/techfile"/>
+			<property name="hibernate.connection.username" value="techfile"/>
+			<property name="hibernate.connection.password" value="techfile"/>
+
+
+
+			<!-- DESCOMENTAR PARA GENERAR DLL O CARGAR DATOS INICIALES -->
+			<!-- <property name="javax.persistence.schema-generation.database.action" -->
+			<!-- value="drop-and-create" /> -->
+			<!-- <property name="javax.persistence.schema-generation.scripts.action" -->
+			<!-- value="drop-and-create" /> -->
+			<!-- <property name="javax.persistence.schema-generation.scripts.create-target" -->
+			<!-- value="E:/sampleCreate.ddl" /> -->
+			<!-- <property name="javax.persistence.schema-generation.scripts.drop-target" -->
+			<!-- value="E:/sampleDrop.ddl" /> -->
+			<!-- <property name="javax.persistence.sql-load-script-source" -->
+			<!-- value="import.sql" /> -->
+
+		</properties>
+
+	</persistence-unit>
+</persistence>

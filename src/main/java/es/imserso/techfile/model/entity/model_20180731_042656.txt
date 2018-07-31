@@ -1,0 +1,5 @@
+WARNING - 04:26:56: First conversion pass
+WARNING - 04:26:59: Generic post-process : Creating activities
+WARNING - 04:26:59: Second pass : generating package usages
+WARNING - 04:26:59: Saving uml file /resource/techfile-jpa/src/main/java/es/imserso/techfile/model/uml/model.uml
+WARNING - 04:26:59: Uml file /resource/techfile-jpa/src/main/java/es/imserso/techfile/model/uml/model.uml saved
